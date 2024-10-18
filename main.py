@@ -3,7 +3,6 @@ import requests
 params = {
     'lat': 47.010452,
     'lng': 28.863810,
-    'date': '2021-03-01',
     'formatted': 0
 }
 url = 'https://api.sunrise-sunset.org/json'
@@ -13,4 +12,4 @@ if response.status_code != 200:
     print('error')
 
 data = response.json()
-print(f"data: {data}")
+print(f"data: {data['results']['sunrise'].split('T')[1].split(':')[0]}")
